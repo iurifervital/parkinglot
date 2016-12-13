@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="media_button_bar/css/media_button_bar.css">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="app_framework/3.0/af.ui.css" data-ver="2">
+        <link rel="stylesheet" type="text/css" href="app_framework/3.0/icons.min.css">
+        <title>Parking Lot</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+
+        <style>
+            @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+            @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+        </style>
+
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="css/map.css">
+
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+        <script src="cordova.js" id="xdkJScordova_"></script>
+
+        <script src="js/app.js"></script>
+
+        <script type="application/javascript" src="js/map.js"></script>
+
+        <script src="js/init-app.js"></script>
+        <script src="xdk/init-dev.js"></script>
+        <script src="JQ/jquery-2.1.1.min.js"></script>
+        <script src="SQL/registro.js"></script>
+        <script type="application/javascript" src="lib/jquery.min.js"></script>
+        <script type="application/javascript" src="app_framework/3.0/appframework.ui.min.js"></script>
+        <script type="application/javascript">
+            $.afui.autoLaunch = false; //By default, it is set to true and you're app will run right away.  We set it to false to show a splashscreen
+            /* This function runs when the content is loaded.*/
+            $.afui.useOSThemes=false;
+             $(document).ready(function(){
+                setTimeout(function(){
+                    $.afui.launch();
+                },1500);
+            });
+        </script>
+        <script type="application/javascript" src="js/index_user_scripts.js"></script>
+        <script type="application/javascript" src="xdk/ad/af_subpage.js"></script>
+        <script type="application/javascript" src="app_framework/pageChangeRepeater.js"></script>
+    </head>
+
+    <body id="afui" class="v2" onload="navigator.geolocation.getCurrentPosition(onSuccess, onError);">
+
+        <script src="https://maps.googleapis.com/maps/api/js?&amp;callback=initMap" async="" defer=""></script>
+
+        <div class="upage vertical-col left view" id="mainpage" data-header="af-header-0" data-footer="none">
+
+            <div class="pages">
+
+                <div class="upage-outer">
+                    <div id="RFCAPP01" class="upage-content vertical-col left hidden panel">
+
+                        <header class="container-group outer-element uib_w_40" data-uib="app_framework/header" data-ver="3" id="asdasd">
+                            <h1>Parking Lot</h1>
+                        </header>
+
+                        <a class="button widget uib_w_39 d-margins" data-uib="app_framework/button" data-ver="2" id="Go">Go!</a>
+
+                    </div>
+                    <div id="RFIS02" class="upage-content vertical-col left hidden panel">
+                        <header class="container-group outer-element uib_w_40" data-uib="app_framework/header" data-ver="3" id="af-header-0">
+                            <h1>Iniciar Sesión</h1>
+                        </header>
+
+                        <div class="table-thing with-label widget uib_w_5 d-margins" data-uib="app_framework/input" data-ver="2">
+
+                            <input class="wide-control" type="text" placeholder="Correo electrónico" name="RFIS02_txt_correo" id="RFIS02_txt_correo">
+                        </div>
+                        <div class="table-thing with-label widget uib_w_6 d-margins" data-uib="app_framework/input" data-ver="2">
+                            <input class="wide-control" placeholder="Contraseña" type="text" name="RFIS02_txt_contrasena" id="RFIS02_txt_contrasena">
+                        </div><a class="button widget uib_w_7 d-margins" data-uib="app_framework/button" data-ver="2" id="RFIS02_btn_iniciarSecion">Iniciar Sesión</a>
+                        <div class="widget uib_w_8 d-margins" data-uib="app_framework/checkbox" data-ver="2">
+                            <input type="checkbox" id="RFIS02_check_recordarme">
+                            <label class="content-box" for="RFIS02_check_recordarme">Recordarme</label>
+                        </div><a class="button widget uib_w_9 d-margins" data-uib="app_framework/button" data-ver="2" id="RFIS02_btn_registro">Registro</a>
+
+                    </div>
+                    <div id="RFDP03" class="upage-content vertical-col left hidden panel">
+                        <header class="container-group outer-element uib_w_40" data-uib="app_framework/header" data-ver="3" id="af-header-0">
+                            <h1>Registro</h1>
+                            <a class="button widget uib_w_10 d-margins" data-uib="app_framework/button" data-ver="2" id="RFDP03_btn_regresar">Regresar</a>
+                        </header>
+
+                        <div class="tarea widget uib_w_15 d-margins" data-uib="media/text" data-ver="0" name="uib_w_15">
+                            <div class="widget-container left-receptacle"></div>
+                            <div class="widget-container right-receptacle"></div>
+                            <div class="text-container">
+                                <p><strong>Registo: Datos de inicio de sesión</strong>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="table-thing with-label widget uib_w_11 d-margins" data-uib="app_framework/input" data-ver="2">
+
+                            <input class="wide-control" placeholder="Correo electrónico" type="text" name="RFDP03_txt_correo" id="RFDP03_txt_correo">
+                        </div>
+                        <div class="table-thing with-label widget uib_w_12 d-margins" data-uib="app_framework/input" data-ver="2">
+
+                            <input class="wide-control" placeholder="Contraseña" type="text" name="RFDP03_txt_contrasena" id="RFDP03_txt_contrasena">
+                        </div>
+                        <div class="table-thing with-label widget uib_w_13 d-margins" data-uib="app_framework/input" data-ver="2">
+
+                            <input class="wide-control" placeholder="Repita la contraseña" type="text" name="RFDP03_txt_repitaContrasena" id="RFDP03_txt_repitaContrasena">
+                        </div><a class="button widget uib_w_14 d-margins" data-uib="app_framework/button" data-ver="2" id="RFDP03_btn_siguiente">Siguiente</a>
+
+                    </div>
+                    <div id="RFDP03_2" class="upage-content vertical-col left hidden panel">
+                        <header class="container-group outer-element uib_w_40" data-uib="app_framework/header" data-ver="3" id="af-header-0">
+                            <h1>Datos personales</h1>
+                            <a class="button widget uib_w_16 d-margins" data-uib="app_framework/button" data-ver="2" id="RFDP03_2_btn_regresar">Regresar</a>
+                        </header>
+
+                        <div class="table-thing with-label widget uib_w_17 d-margins" data-uib="app_framework/input" data-ver="2">
+                            <input class="wide-control" placeholder="Nombres" type="text" name="RFDP03_2_txt_nombres" id="RFDP03_2_txt_nombres">
+                        </div>
+                        <div class="table-thing with-label widget uib_w_18 d-margins" data-uib="app_framework/input" data-ver="2">
+                            <input class="wide-control" placeholder="Apellido paterno" type="text" name="RFDP03_2_txt_AP" id="RFDP03_2_txt_AP">
+                        </div>
+                        <div class="table-thing with-label widget uib_w_19 d-margins" data-uib="app_framework/input" data-ver="2">
+                            <input class="wide-control" placeholder="Apellido materno" type="text" name="RFDP03_2_txt_AM" id="RFDP03_2_txt_AM">
+                        </div>
+                        <div class="table-thing with-label widget uib_w_20 d-margins" data-uib="app_framework/input" data-ver="2">
+                            <input class="wide-control" type="text" placeholder="Telefono celular" name="RFDP03_2_txt_telefonoCelular" id="RFDP03_2_txt_telefonoCelular">
+                        </div><a class="button widget uib_w_21 d-margins" data-uib="app_framework/button" data-ver="2" id="RFDP03_2_btn_Siguiente">Siguiente</a>
+
+                    </div>
+                    <div id="RFMP4" class="upage-content vertical-col left hidden panel">
+                        <header class="container-group outer-element uib_w_40" data-uib="app_framework/header" data-ver="3" id="af-header-0">
+                            <h1>Método de pago</h1>
+                            <a class="button widget uib_w_23 d-margins" data-uib="app_framework/button" data-ver="2" id="RFMP04_btn_regresar">Regresar</a>
+                        </header>
+                        <a class="button widget uib_w_25 d-margins" data-uib="app_framework/button" data-ver="2" id="RFMP04_btn_tarjeta">Tarjeta de crédito o débito</a>
+                    </div>
+                    <div id="RFPT05" class="upage-content vertical-col left hidden panel">
+                        <header class="container-group outer-element uib_w_40" data-uib="app_framework/header" data-ver="3" id="af-header-0">
+                            <h1>Tarjeta</h1>
+                            <a class="button widget uib_w_26 d-margins" data-uib="app_framework/button" data-ver="2" id="RFPT05_btn_regresar">Regresar</a>
+                        </header>
+
+                        <div class="table-thing with-label widget uib_w_28 d-margins" data-uib="app_framework/input" data-ver="2">
+                            <input class="wide-control" placeholder="Numero de tarjeta" type="text" name="RFPT05_txt_numeroTarjeta" id="RFPT05_txt_numeroTarjeta">
+                        </div>
+                        <div class="table-thing with-label widget uib_w_29 d-margins" data-uib="app_framework/input" data-ver="2">
+                            <input class="wide-control" placeholder="MM" type="text" name="RFPT05_txt_MM" id="RFPT05_txt_MM">
+                        </div>
+                        <div class="table-thing with-label widget uib_w_30 d-margins" data-uib="app_framework/input" data-ver="2">
+                            <input class="wide-control" placeholder="AA" type="text" name="RFPT05_btn_AA" id="RFPT05_btn_AA">
+                        </div>
+                        <div class="table-thing with-label widget uib_w_31 d-margins" data-uib="app_framework/input" data-ver="2">
+                            <input class="wide-control" placeholder="CVV" type="text" name="RFPT05_txt_CVV" id="RFPT05_txt_CVV">
+                        </div>
+                        <div class="table-thing with-label widget uib_w_32 d-margins" data-uib="app_framework/select" data-ver="2">
+                            <label class="narrow-control label-inline">País:</label>
+                            <select class="wide-control" name="RFPT05_slct_pais">
+                                <option>México</option>
+                                <option>USA</option>
+                                <option>Canadá</option>
+                            </select>
+                        </div><a class="button widget uib_w_33 d-margins" data-uib="app_framework/button" data-ver="2" id="RFPT05_btn_siguiente">Siguiente</a>
+                    </div>
+                    <div id="RFTC06" class="upage-content vertical-col left hidden panel">
+                        <header class="container-group outer-element uib_w_40" data-uib="app_framework/header" data-ver="3" id="af-header-0">
+                            <h1>Términos y condiciones</h1>
+                            <a class="button widget uib_w_34 d-margins" data-uib="app_framework/button" data-ver="2" id="RFTC06_btn_regresar">Regresar</a>
+                        </header>
+
+                        <div class="table-thing with-label widget uib_w_36 d-margins" data-uib="app_framework/textarea" data-ver="2">
+                            <textarea class="wide-control" placeholder="Placeholder Text" rows="14" wrap="soft">___________________________________________________________________________________________________ -------------------------------------------------------------- ______________________________________________________________________________-
+                                ____________________________________________________
+                            </textarea>
+                        </div>
+                        <div class="widget uib_w_37 d-margins" data-uib="app_framework/checkbox" data-ver="2">
+                            <input type="checkbox" id="af-checkbox-0" name="RFTC06_check_terminos">
+                            <label class="content-box" for="af-checkbox-0">Acepto términos y conficiones</label>
+                        </div><a class="button widget uib_w_38 d-margins" data-uib="app_framework/button" data-ver="2" id="RFTC06_btn_finalizar" data-page-type="content_page">Finalizar</a>
+                    </div>
+                    <div id="RFI07" class="upage-content vertical-col left hidden panel">
+                        <header class="container-group outer-element uib_w_40" data-uib="app_framework/header" data-ver="3" id="af-header-0">
+                            <h1>Parking Lot</h1>
+                            <div class="widget-container wrapping-col single-centered"><a class="button widget uib_w_42 d-margins" data-uib="app_framework/button" data-ver="2" id="RFI07_btn_menu">Menú</a>
+                            </div>
+                            <div class="widget-container content-area horiz-area wrapping-col header-left"></div>
+                            <div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+                        </header>
+                        <a class="button widget uib_w_43 d-margins" data-uib="app_framework/button" data-ver="2" id="RFI07_btn_buscarEstacionamiento">Buscar Estacionamiento</a>
+                    </div>
+                    <div class="pages">
+                        <div id="RFI07_2" class="upage-content vertical-col left hidden panel">
+                            <header class="container-group outer-element uib_w_40" data-uib="app_framework/header" data-ver="3" id="af-header-0">
+                                <h1>Datos del usuario</h1>
+                                <div class="widget-container wrapping-col single-centered"><a class="button widget uib_w_42 d-margins" data-uib="app_framework/button" data-ver="2" id="RFI07_2_btn_regresar">Regresar</a>
+                                </div>
+                                <div class="widget-container content-area horiz-area wrapping-col header-left"></div>
+                                <div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+                            </header>
+
+                            <div class="tarea widget uib_w_44 d-margins" data-uib="media/text" data-ver="0" name="uib_w_44">
+                                <div class="widget-container left-receptacle"></div>
+                                <div class="widget-container right-receptacle"></div>
+                                <div class="text-container">
+                                    <h2 style="font-style: italic;"><cite><big><strong>Información del usuario</strong></big></cite></h2>
+                                </div>
+                            </div>
+                            <div class="tarea widget uib_w_45 d-margins" data-uib="media/text" data-ver="0" name="uib_w_45">
+                                <div class="widget-container left-receptacle"></div>
+                                <div class="widget-container right-receptacle"></div>
+                                <div class="text-container">
+                                    <p><strong>Nombre:</strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="tarea widget uib_w_46 d-margins" data-uib="media/text" data-ver="0" name="uib_w_46">
+                                <div class="widget-container left-receptacle"></div>
+                                <div class="widget-container right-receptacle"></div>
+                                <div class="text-container">
+                                    <p id="userNombre">-</p>
+                                </div>
+                            </div>
+                            <div class="tarea widget uib_w_47 d-margins" data-uib="media/text" data-ver="0" name="uib_w_47">
+                                <div class="widget-container left-receptacle"></div>
+                                <div class="widget-container right-receptacle"></div>
+                                <div class="text-container">
+                                    <p><strong>Pago:</strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="tarea widget uib_w_48 d-margins" data-uib="media/text" data-ver="0" name="uib_w_48">
+                                <div class="widget-container left-receptacle"></div>
+                                <div class="widget-container right-receptacle"></div>
+                                <div class="text-container">
+                                    <p id="userPago">-</p>
+                                </div>
+                            </div>
+                            <div class="tarea widget uib_w_50 d-margins" data-uib="media/text" data-ver="0" name="uib_w_50">
+                                <div class="widget-container left-receptacle"></div>
+                                <div class="widget-container right-receptacle"></div>
+                                <div class="text-container">
+                                    <p><strong>Telefono:</strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="tarea widget uib_w_51 d-margins" data-uib="media/text" data-ver="0" name="uib_w_51">
+                                <div class="widget-container left-receptacle"></div>
+                                <div class="widget-container right-receptacle"></div>
+                                <div class="text-container">
+                                    <p id="userTelefono">-</p>
+                                </div>
+                            </div><a class="button widget uib_w_49 d-margins" data-uib="app_framework/button" data-ver="2" id="RFI07_2_btn_historial">Historial</a>
+                            <a class="button widget uib_w_66 d-margins" data-uib="app_framework/button" data-ver="2" id="RFI07_2_btn_cerrarSesion">Cerrar Sesión</a>
+                        </div>
+
+                        <div id="RFH10" class="upage-content vertical-col left hidden panel">
+                            <header class="container-group outer-element uib_w_40" data-uib="app_framework/header" data-ver="3" id="af-header-0">
+                                <h1>Historial</h1>
+                                <div class="widget-container wrapping-col single-centered"><a class="button widget uib_w_42 d-margins" data-uib="app_framework/button" data-ver="2" id="RFH10_btn_atras">Regresar</a>
+                                </div>
+                                <div class="widget-container content-area horiz-area wrapping-col header-left"></div>
+                                <div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+                            </header>
+
+                            <div class="tarea widget uib_w_52 d-margins" data-uib="media/text" data-ver="0" name="uib_w_52">
+                                <div class="widget-container left-receptacle"></div>
+                                <div class="widget-container right-receptacle"></div>
+                                <div class="text-container">
+                                    <p id="userHistorial">-</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="RFBED11" class="upage-content vertical-col left hidden panel">
+                            <header class="container-group outer-element uib_w_40" data-uib="app_framework/header" data-ver="3" id="af-header-0">
+                                <h1>Buscar estacionamiento</h1>
+                                <div class="widget-container wrapping-col single-centered"><a class="button widget uib_w_42 d-margins" data-uib="app_framework/button" data-ver="2" id="RFBED11_btn_regresar">Regresar</a>
+                                </div>
+                                <div class="widget-container content-area horiz-area wrapping-col header-left"></div>
+                                <div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+                            </header>
+                            <a class="button widget uib_w_43 d-margins" data-uib="app_framework/button" data-ver="2" id="RFBED11_btn_cercano">El mas cercano en donde meencuentro</a>
+                            <a class="button widget uib_w_54 d-margins" data-uib="app_framework/button" data-ver="2" id="RFBED11_destino">Seleccionar destino</a>
+                        </div>
+
+                        <div id="RFMC12" class="upage-content vertical-col left hidden panel">
+                            <header class="container-group outer-element uib_w_40" data-uib="app_framework/header" data-ver="3" id="af-header-0">
+                                <h1>Mas Cercano</h1>
+
+                                <div class="widget-container content-area horiz-area wrapping-col header-left"></div>
+                                <div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+                            </header>
+                            <a class="button widget uib_w_43 d-margins" data-uib="app_framework/button" data-ver="2" id="RFMC12_btn_apartar">Apartar</a>
+                            <div class="table-thing with-label widget uib_w_58 d-margins" data-uib="app_framework/input" data-ver="2">
+                                <label class="narrow-control label-inline" for="RFMC12_txt_costo">Hora: $</label>
+                                <input class="wide-control" type="text" name="RFMC12_txt_costo" id="RFMC12_txt_costo">
+                            </div>
+                            <div id="right-panel"></div>
+                            <a class="button widget uib_w_53 d-margins" data-uib="app_framework/button" data-ver="2" id="RFMC12_btn_cancelar">Cancelar</a>
+
+                            <div>
+                                <div id="map" align="right"></div>
+                            </div>
+
+                        </div>
+
+                        <div id="RFDE13" class="upage-content vertical-col left hidden panel">
+
+                            <header class="container-group outer-element uib_w_40" data-uib="app_framework/header" data-ver="3" id="af-header-0">
+                                <h1>Dirijase a su estacionamiento</h1>
+
+                                <div class="widget-container content-area horiz-area wrapping-col header-left"></div>
+                                <div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+                            </header>
+                            <a class="button widget uib_w_43 d-margins" data-uib="app_framework/button" data-ver="2" id="RFDE13_btn_RFID">Clave para entrar</a>
+                            <div id="right-panel2"></div>
+                            <a class="button widget uib_w_53 d-margins" data-uib="app_framework/button" data-ver="2" id="RFDE13_btn_cancelar">Cancelar</a>
+
+                            <div>
+                                <div id="map2" align="right"></div>
+                            </div>
+
+                        </div>
+
+                        <div id="RFRFID14" class="upage-content vertical-col left hidden panel">
+
+                            <header class="container-group outer-element uib_w_40" data-uib="app_framework/header" data-ver="3" id="af-header-0">
+                                <h1>Coloque este código en el leector</h1>
+
+                                <div class="widget-container content-area horiz-area wrapping-col header-left"></div>
+                                <div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+                            </header>
+                            <a class="button widget uib_w_43 d-margins" data-uib="app_framework/button" data-ver="2" id="RFRFID14_btn_regresar">Regresar al mapa</a>
+
+                            <div class="table-thing with-label widget uib_w_57 d-margins" data-uib="app_framework/input" data-ver="2">
+                                <label class="narrow-control label-inline" for="RFRFID14_txt_codigo">Código:</label>
+
+                                <input class="wide-control" type="text" name="RFRFID14_txt_codigo" id="RFRFID14_txt_codigo">
+                            </div>
+                            <a class="button widget uib_w_59 d-margins" data-uib="app_framework/button" data-ver="2" id="RFRFID14_btn_ok">Ya he entrado!</a>
+                        </div>
+
+                        <div id="RFRFID14_2" class="upage-content vertical-col left hidden panel">
+
+                            <header class="container-group outer-element uib_w_40" data-uib="app_framework/header" data-ver="3" id="af-header-0">
+                                <h1>Codigo para salir</h1>
+
+                                <div class="widget-container content-area horiz-area wrapping-col header-left"></div>
+                                <div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+                            </header>
+
+                            <div class="table-thing with-label widget uib_w_57 d-margins" data-uib="app_framework/input" data-ver="2">
+                                <label class="narrow-control label-inline" for="RFRFID14_2_txt_codigoSalir">Código:</label>
+
+                                <input class="wide-control" type="text" name="RFRFID14_2_txt_codigoSalir" id="RFRFID14_2_txt_codigoSalir">
+                            </div>
+                            <a class="button widget uib_w_59 d-margins" data-uib="app_framework/button" data-ver="2" id="RFRFID14_2_btn_fin">Finalizar el servicio</a>
+                        </div>
+
+                        <div id="RFRFIDF15" class="upage-content vertical-col left hidden panel">
+
+                            <header class="container-group outer-element uib_w_40" data-uib="app_framework/header" data-ver="3" id="af-header-0">
+                                <h1>Servicio Finalizado Correctamente</h1>
+
+                                <div class="widget-container content-area horiz-area wrapping-col header-left"></div>
+                                <div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+                            </header>
+
+                            <div class="tarea widget uib_w_60 d-margins" data-uib="media/text" data-ver="0" name="uib_w_60">
+                                <div class="widget-container left-receptacle"></div>
+                                <div class="widget-container right-receptacle"></div>
+                                <div class="text-container">
+                                    <h2>Costo por hora:</h2>
+                                </div>
+                            </div>
+                            <div class="tarea widget uib_w_61 d-margins" data-uib="media/text" data-ver="0" name="uib_w_61">
+                                <div class="widget-container left-receptacle"></div>
+                                <div class="widget-container right-receptacle"></div>
+                                <div class="text-container">
+                                    <h3 id="RFRFIDF15_lbl_costoPorHora">-</h3>
+                                </div>
+                            </div>
+                            <div class="tarea widget uib_w_62 d-margins" data-uib="media/text" data-ver="0" name="uib_w_62">
+                                <div class="widget-container left-receptacle"></div>
+                                <div class="widget-container right-receptacle"></div>
+                                <div class="text-container">
+                                    <h2>Minutos acumulados:</h2>
+                                </div>
+                            </div>
+                            <div class="tarea widget uib_w_63 d-margins" data-uib="media/text" data-ver="0" name="uib_w_63">
+                                <div class="widget-container left-receptacle"></div>
+                                <div class="widget-container right-receptacle"></div>
+                                <div class="text-container">
+                                    <h3 id="RFRFIDF15_lbl_horasAcumuladas">-</h3>
+                                </div>
+                            </div>
+                            <div class="tarea widget uib_w_64 d-margins" data-uib="media/text" data-ver="0" name="uib_w_64">
+                                <div class="widget-container left-receptacle"></div>
+                                <div class="widget-container right-receptacle"></div>
+                                <div class="text-container">
+                                    <h2>Total a pagar:</h2>
+                                </div>
+                            </div>
+                            <div class="tarea widget uib_w_65 d-margins" data-uib="media/text" data-ver="0" name="uib_w_65">
+                                <div class="widget-container left-receptacle"></div>
+                                <div class="widget-container right-receptacle"></div>
+                                <div class="text-container">
+                                    <h3 id="RFRFIDF15_lbl_totalPagar">-</h3>
+                                </div>
+                            </div>
+                            <a class="button widget uib_w_59 d-margins" data-uib="app_framework/button" data-ver="2" id="RFRFID15_btn_fin" href="#RFI07" data-transition="fade" data-page-type="content_page">Finalizar Servicio</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>
